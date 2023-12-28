@@ -217,6 +217,55 @@
 </header>
 
 <main>
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Слайд1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/media/medservice/carousel_1.jpg" width="100%" height="100%"
+                </img>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>МРТ МОЗГА, ТРЕХ ОТДЕЛОВ ПОЗВОНОЧНИКА И СУСТАВОВ ОТ 3000 РУБ.</h1>
+                        <p><a class="btn btn-lg btn-primary" href="#">Узнать подробнее</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/media/medservice/carousel_2.jpg" width="100%" height="100%"
+                </img>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>КТ ОДНОЙ ЗОНЫ БЕЗ КОНТРАСТА ОТ 3000 РУБЛЕЙ</h1>
+                        <p>Скидка 20% на КТ исследования без контраста</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Узнать подробнее</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/media/medservice/carousel_3.jpg" width="100%" height="100%"
+                </img>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>АКЦИИ НА КАРДИОЛОГИЮ</h1>
+                        <p><a class="btn btn-lg btn-primary" href="#">Узнать подробнее</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+        </button>
+    </div>
     {% block content %}
     {% endblock %}
 
