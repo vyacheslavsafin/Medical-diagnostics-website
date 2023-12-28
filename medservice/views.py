@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.urls import reverse_lazy
 from medservice.models import Category, Service
 
 
-def index(request):
-    return render(request, 'medservice/index.html')
+# def index(request):
+#     return render(request, 'medservice/index.html')
+
+class IndexView(TemplateView):
+    template_name = 'medservice/index.html'
 
 
 class CategoryListView(ListView):
@@ -22,3 +25,15 @@ class CategoryServicesListView(ListView):
 
 class AllServicesListView(ListView):
     model = Service
+
+
+class ServiceCreateView(CreateView):
+    model = Service
+    fields = ('name', 'description', 'category', 'price', 'duration')
+    success_url = reverse_lazy('medservice:all_services')
+
+
+class ServiceUpdateView(UpdateView):
+    model = Service
+    fields = ('name', 'description', 'category', 'price', 'duration')
+    success_url = reverse_lazy('medservice:all_services')
