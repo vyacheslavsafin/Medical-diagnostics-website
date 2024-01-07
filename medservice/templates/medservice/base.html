@@ -207,9 +207,13 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                    <button class="btn btn-outline-success" type="submit">Поиск</button>
-                    <button class="btn btn-outline-success" type="submit">Вход</button>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
+                        <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
+                    {% else %}
+                        <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+                        <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+                    {% endif %}
                 </form>
             </div>
         </div>
