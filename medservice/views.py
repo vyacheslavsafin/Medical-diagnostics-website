@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
+
+from medservice.forms import ServiceForm
 from medservice.models import Category, Service
 
 
@@ -17,6 +19,7 @@ class CategoryListView(ListView):
 
 class CategoryServicesListView(ListView):
     model = Service
+
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = queryset.filter(category_id=self.kwargs.get('pk'))
@@ -29,11 +32,18 @@ class AllServicesListView(ListView):
 
 class ServiceCreateView(CreateView):
     model = Service
-    fields = ('name', 'description', 'category', 'price', 'duration')
+    form_class = ServiceForm
     success_url = reverse_lazy('medservice:all_services')
+
+
+class ServiceDetailView(DetailView):
+    model = Service
+    extra_context = {
+        'title': 'Описание услуги'
+    }
 
 
 class ServiceUpdateView(UpdateView):
     model = Service
-    fields = ('name', 'description', 'category', 'price', 'duration')
+    form_class = ServiceForm
     success_url = reverse_lazy('medservice:all_services')
