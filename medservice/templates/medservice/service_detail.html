@@ -10,6 +10,7 @@
                 <p class="card-text">Длительность: {{ object.duration }} минут</p>
                 <p class="card-text">Направление: {{ object.category }}</p>
                 <h3 class="card-text">Цена {{ object.price }} руб.</h3>
+                <a href="{% url 'medservice:appointment_create' %}" class="btn btn-success">Записаться</a>
             </div>
         </div>
     </div>

@@ -20,6 +20,8 @@
                                            class="btn btn-sm btn-outline-secondary">Перейти</a>
                                         <a href="{% url 'medservice:service_update' object.pk %}" type="button"
                                            class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                        <a href="{% url 'medservice:service_delete' object.pk %}" type="button"
+                                           class="btn btn-sm btn-outline-danger">Удалить</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 from django import forms
 
-from medservice.models import Service
+from medservice.models import Service, Appointment
 
 
 class StyleFormMixin:
@@ -14,3 +14,10 @@ class ServiceForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Service
         fields = '__all__'
+
+
+class AppointmentForm(StyleFormMixin, forms.ModelForm):
+
+    class Meta:
+        model = Appointment
+        fields = ('service', 'date', 'owner',)

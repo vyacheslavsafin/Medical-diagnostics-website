@@ -208,6 +208,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                     {% if user.is_authenticated %}
+                        <li><a href="{% url 'medservice:appointment_list' %}" class="text-white">Мои записи</a></li>
                         <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
                         <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
                     {% else %}

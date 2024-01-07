@@ -1,0 +1,31 @@
+{% extends 'medservice/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        {% if object %}
+                        Редактирование записи
+                        {% else %}
+                        Записаться на приём к врачу
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-outline-success">
+                            {% if object %}
+                            Сохранить
+                            {% else %}
+                            Добавить
+                            {% endif %}
+                        </button>
+                        <a href="{% url 'medservice:appointment_list' %}" class="btn btn-warning">Отменить</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
