@@ -193,17 +193,11 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'medservice:categories' %}">Направления</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Врачи</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'medservice:all_services' %}">Все
                             услуги</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-disabled="true">Блог</a>
+                        <a class="nav-link active" href="{% url 'medservice:contacts' %}">Контакты</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

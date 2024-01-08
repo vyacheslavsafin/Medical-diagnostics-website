@@ -1,0 +1,46 @@
+{% extends 'medservice/base.html' %}
+
+{% block content %}
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="row text-center">
+                <div class="col-6">
+                    <div style=padding:20px;">
+                        <h3>Где нас найти?</h3>
+                        <h5 class="fw-normal text-muted">Наш центральный офис находится по адресу:</h5>
+                        <h5 class="fw-normal text-muted">САНКТ-ПЕТЕРБУРГ, ПРОСПЕКТ МЕДИКОВ 3</h5>
+                        <h5 class="lead">Телефон: +7 (777) 77-77</h5>
+                        <h5 class="lead">Email: medservice@sky.pro</h5>
+                        <h5 class="fw-normal text-muted">Или найдите нас в своём городе</h5>
+                        <div class="d-flex gap-3 justify-content-center lead fw-normal">
+                            <a class="icon-link" href="#">
+                                Выберите Ваш город
+                                <svg class="bi">
+                                    <use xlink:href="#chevron-right"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <h3>Остались вопросы? Заполните форму для обратной связи и мы Вам напишем!</h3>
+                                    <input name="name" type="text" class="form-control" placeholder="Имя"
+                                           aria-label="First name">
+                                </div>
+                                <div class="mb-3">
+                                    <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                           placeholder="E-mail" aria-describedby="emailHelp">
+                                </div>
+                                <button type="submit" class="btn btn-primary form-control">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

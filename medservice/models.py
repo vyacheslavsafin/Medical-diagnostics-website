@@ -37,7 +37,8 @@ class Service(models.Model):
 class Appointment(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Направление', **NULLABLE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Услуга')
-    date = models.DateTimeField(verbose_name='Дата приёма')
+    date = models.DateField(verbose_name='Дата приёма', **NULLABLE)
+    time = models.TimeField(verbose_name='Время приёма', **NULLABLE)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
 
     def __str__(self):

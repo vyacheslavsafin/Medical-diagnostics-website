@@ -7,6 +7,9 @@
                 <div class="col-12 mb-5">
                     <a class="btn btn-primary" href="{% url 'medservice:service_create' %}">Добавить услугу</a>
                 </div>
+                <div class="col-12 mb-5">
+                    <a class="btn btn-primary" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
+                </div>
                 {% for object in object_list %}
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">

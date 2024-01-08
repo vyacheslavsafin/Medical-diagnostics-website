@@ -3,12 +3,13 @@ from django.urls import path
 from medservice.apps import MedserviceConfig
 from medservice.views import IndexView, CategoryListView, CategoryServicesListView, AllServicesListView, \
     ServiceDetailView, ServiceCreateView, ServiceUpdateView, ServiceDeleteView, AppointmentListView, \
-    AppointmentDetailView, AppointmentCreateView, AppointmentDeleteView, AppointmentUpdateView
+    AppointmentDetailView, AppointmentCreateView, AppointmentDeleteView, AppointmentUpdateView, ContactsView
 
 app_name = MedserviceConfig.name
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('contacts/', ContactsView.as_view(), name='contacts'),
     path('categories/', CategoryListView.as_view(), name='categories'),
     path('<int:pk>/services/', CategoryServicesListView.as_view(), name='category_services'),
 

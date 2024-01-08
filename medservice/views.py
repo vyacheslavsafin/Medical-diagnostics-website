@@ -6,11 +6,15 @@ from medservice.forms import ServiceForm, AppointmentForm
 from medservice.models import Category, Service, Appointment
 
 
-# def index(request):
-#     return render(request, 'medservice/index.html')
-
 class IndexView(TemplateView):
     template_name = 'medservice/index.html'
+
+
+class ContactsView(TemplateView):
+    template_name = 'medservice/contacts.html'
+    extra_context = {
+        'title': 'Контакты'
+    }
 
 
 class CategoryListView(ListView):
