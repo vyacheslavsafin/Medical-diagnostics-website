@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Марк Отто, Джейкоб Торнтон и контрибьюторы Bootstrap">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Шаблон карусели · Bootstrap v5.3</title>
+    <title>Сайт медицинской диагностики МедСервис</title>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -193,21 +193,16 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'medservice:categories' %}">Направления</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Врачи</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'medservice:all_services' %}">Все
                             услуги</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-disabled="true">Блог</a>
+                        <a class="nav-link active" href="{% url 'medservice:contacts' %}">Контакты</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
                     {% if user.is_authenticated %}
+                        <li><a href="{% url 'medservice:appointment_list' %}" class="text-white">Мои записи</a></li>
                         <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
                         <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
                     {% else %}

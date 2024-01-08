@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">
                         {% if object %}
-                        Редактирование услуги
+                        Редактирование записи
                         {% else %}
-                        Добавление услуги
+                        Записаться на приём к врачу
                         {% endif %}
                     </div>
                     <div class="card-body">
@@ -22,7 +22,7 @@
                             Добавить
                             {% endif %}
                         </button>
-                        <a href="{% url 'medservice:categories' %}" class="btn btn-warning">Отменить</a>
+                        <a href="{% url 'medservice:appointment_list' %}" class="btn btn-warning">Отменить</a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 NULLABLE = {'null': True, 'blank': True}
 
 
@@ -30,3 +32,17 @@ class Service(models.Model):
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
         ordering = ('name', 'category',)
+
+
+class Appointment(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Направление', **NULLABLE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Услуга')
+    date = models.DateField(verbose_name='Дата приёма', **NULLABLE)
+    time = models.TimeField(verbose_name='Время приёма', **NULLABLE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.service} ({self.date})'
+
+    class Meta:
+        verbose_name = 'Приём'

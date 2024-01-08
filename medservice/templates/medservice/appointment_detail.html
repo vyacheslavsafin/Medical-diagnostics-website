@@ -1,0 +1,16 @@
+{% extends 'medservice/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Направление: {{ object.category }}</p>
+                <p class="card-text">Услуга: {{ object.service }}</p>
+                <p class="card-text">Дата: {{ object.date }}</p>
+                <p class="card-text">Пациент: {{ object.owner }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
