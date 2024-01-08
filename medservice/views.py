@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -58,8 +58,14 @@ class ServiceDeleteView(DeleteView):
     success_url = reverse_lazy('medservice:all_services')
 
 
-class AppointmentListView(ListView):
+class AppointmentListView(LoginRequiredMixin, ListView):
     model = Appointment
+
+    def get_queryset(self):
+        if not self.request.user.is_staff:
+            return Appointment.objects.filter(owner=self.request.user)
+        else:
+            return Appointment.objects.all()
 
 
 class AppointmentCreateView(CreateView):

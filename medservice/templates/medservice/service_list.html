@@ -4,9 +4,11 @@
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-12 mb-5">
-                    <a class="btn btn-primary" href="{% url 'medservice:service_create' %}">Добавить услугу</a>
-                </div>
+                {% if user.is_staff %}
+                    <div class="col-12 mb-5">
+                        <a class="btn btn-primary" href="{% url 'medservice:service_create' %}">Добавить услугу</a>
+                    </div>
+                {% endif %}
                 <div class="col-12 mb-5">
                     <a class="btn btn-primary" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
                 </div>
@@ -21,10 +23,12 @@
                                     <div class="btn-group">
                                         <a href="{% url 'medservice:service_view' object.pk %}" type="button"
                                            class="btn btn-sm btn-outline-secondary">Перейти</a>
-                                        <a href="{% url 'medservice:service_update' object.pk %}" type="button"
-                                           class="btn btn-sm btn-outline-secondary">Изменить</a>
-                                        <a href="{% url 'medservice:service_delete' object.pk %}" type="button"
-                                           class="btn btn-sm btn-outline-danger">Удалить</a>
+                                        {% if user.is_staff %}
+                                            <a href="{% url 'medservice:service_update' object.pk %}" type="button"
+                                               class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                            <a href="{% url 'medservice:service_delete' object.pk %}" type="button"
+                                               class="btn btn-sm btn-outline-danger">Удалить</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
