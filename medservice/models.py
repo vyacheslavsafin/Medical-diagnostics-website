@@ -8,6 +8,7 @@ NULLABLE = {'null': True, 'blank': True}
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание', **NULLABLE)
+    image = models.ImageField(verbose_name='иконка', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'
@@ -45,4 +46,5 @@ class Appointment(models.Model):
         return f'{self.service} ({self.date})'
 
     class Meta:
-        verbose_name = 'Приём'
+        verbose_name = ('Запись на приём')
+        verbose_name_plural = 'Записи на приём'

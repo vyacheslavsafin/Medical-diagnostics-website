@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 
 from medservice.forms import ServiceForm, AppointmentForm
 from medservice.models import Category, Service, Appointment
@@ -76,12 +76,15 @@ class AppointmentCreateView(CreateView):
     form_class = AppointmentForm
     success_url = reverse_lazy('medservice:appointment_list')
 
-    def get_form(self, form_class=AppointmentForm, **kwargs):
+    def get_form(self, form_class=AppointmentForm):
         field = self.request.GET.get('from')
         if field is None:
-            return form_class(**kwargs)
+            return form_class(**self.get_form_kwargs())
         service = Service.objects.get(pk=field)
-        return form_class(initial={'category': service.category, 'service': service})
+        form_data = self.get_form_kwargs()
+        form_data['initial']['category'] = service.category
+        form_data['initial']['service'] = service
+        return form_class(**form_data)
 
 
 class AppointmentDetailView(DetailView):

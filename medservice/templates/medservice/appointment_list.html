@@ -5,7 +5,8 @@
         <div class="row">
             {% if not user.is_staff %}
                 <div class="col-12 mb-5">
-                    <a class="custom-btn btn-13" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
+                    <a class="custom-btn btn-13" href="{% url 'medservice:appointment_create' %}">Записаться на приём к
+                        врачу</a>
                 </div>
             {% endif %}
             {% for object in object_list %}
@@ -15,14 +16,14 @@
                             <p class="card-text">Услуга: {{ object.service }}</p>
                             <p class="card-text">Дата: {{ object.date }}</p>
                             <p class="card-text">Время: {{ object.time }}</p>
-                            <p class="card-text">Пользователь: {{ object.owner|default:"-" }}</p>
+                            <p class="card-text">Пациент: {{ object.owner.first_name}} {{ object.owner.last_name }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{% url 'medservice:appointment_detail' object.pk %}"
-                                            class="btn btn-sm btn-outline-secondary">Перейти</a>
+                                   class="btn btn-sm btn-outline-secondary">Перейти</a>
                                 <a href="{% url 'medservice:appointment_update' object.pk %}" type="button"
-                                            class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                   class="btn btn-sm btn-outline-secondary">Изменить</a>
                                 <a href="{% url 'medservice:appointment_delete' object.pk %}" type="button"
-                                            class="btn btn-sm btn-outline-danger">Удалить</a>
+                                   class="btn btn-sm btn-outline-danger">Удалить</a>
                             </div>
                         </div>
                     </div>
