@@ -18,7 +18,7 @@ class ServiceForm(StyleFormMixin, forms.ModelForm):
 class AppointmentForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ('service', 'date', 'time', 'owner',)
+        fields = '__all__'
         widgets = {
             'date': forms.DateInput(
                 attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)', 'class': 'form-control'}

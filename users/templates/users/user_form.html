@@ -18,11 +18,11 @@
                     </div>
                     <div class="card-footer">
                         {% if user.is_authenticated %}
-                            <input class="custom-btn btn-1" type="submit" value="Сохранить изменения"/>
-                            <a class="custom-btn btn-13" href="{% url 'users:generate_new_password' %}">Восстановить
-                                пароль</a>
+                            <input class="custom-btn btn-13" type="submit" value="Сохранить изменения"/>
+                            <button class="custom-btn btn-7" href="{% url 'users:generate_new_password' %}">Сброс
+                                пароля</button>
                         {% else %}
-                            <input class="custom-btn btn-1" type="submit" value="Регистрация"/>
+                            <input class="custom-btn btn-13" type="submit" value="Регистрация"/>
                         {% endif %}
                     </div>
                 </div>

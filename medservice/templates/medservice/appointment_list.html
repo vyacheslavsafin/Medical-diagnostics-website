@@ -5,7 +5,7 @@
         <div class="row">
             {% if not user.is_staff %}
                 <div class="col-12 mb-5">
-                    <a class="btn btn-primary" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
+                    <a class="custom-btn btn-13" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
                 </div>
             {% endif %}
             {% for object in object_list %}

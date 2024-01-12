@@ -1,7 +1,7 @@
 {% extends 'medservice/base.html' %}
 
 {% block content %}
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-body">
         <div class="container">
             <div class="row">
                 {% if user.is_staff %}
@@ -11,7 +11,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                 <div class="col-12 mb-5">
-                    <a class="btn btn-primary" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</a>
+                    <button class="custom-btn btn-13" href="{% url 'medservice:appointment_create' %}">Записаться на приём к врачу</button>
                 </div>
                 {% endif %}
                 {% for object in object_list %}
