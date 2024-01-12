@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 
 from medservice.forms import ServiceForm, AppointmentForm
 from medservice.models import Category, Service, Appointment
