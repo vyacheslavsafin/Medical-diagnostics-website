@@ -46,5 +46,5 @@ class Appointment(models.Model):
         return f'{self.service} ({self.date})'
 
     class Meta:
-        verbose_name = ('Запись на приём')
+        verbose_name = 'Запись на приём'
         verbose_name_plural = 'Записи на приём'

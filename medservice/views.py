@@ -11,7 +11,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['objects'] = Category.objects.all()
+        context_data['objects'] = Category.objects.all()[:3]
 
         return context_data
 
@@ -23,6 +23,12 @@ class ContactsView(TemplateView):
 class CategoryListView(ListView):
     model = Category
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['objects'] = Category.objects.all()
+
+        return context_data
+
 
 class CategoryServicesListView(ListView):
     model = Service
@@ -31,6 +37,14 @@ class CategoryServicesListView(ListView):
         queryset = super().get_queryset()
         queryset = queryset.filter(category_id=self.kwargs.get('pk'))
         return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+        category_description = Category.objects.get(pk=self.kwargs.get('pk'))
+        context_data['description'] = category_description.description
+        context_data['title'] = category_description.description
+
+        return context_data
 
 
 class AllServicesListView(ListView):
@@ -89,9 +103,6 @@ class AppointmentCreateView(CreateView):
 
 class AppointmentDetailView(DetailView):
     model = Appointment
-    extra_context = {
-        'title': 'Запись на приём к врачу'
-    }
 
 
 class AppointmentUpdateView(UpdateView):
