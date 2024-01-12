@@ -21,7 +21,7 @@ class UserCreationForm(StyleFormMixin, BaseUserCreationForm):
 class UserUpdateForm(StyleFormMixin, BaseUserChangeForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'avatar', 'phone')
+        fields = ('first_name', 'last_name', 'avatar', 'phone', 'email')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
