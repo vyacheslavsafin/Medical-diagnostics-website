@@ -12,7 +12,8 @@
                         <p class="card-text">Направление: {{ object.category }}</p>
                         <h3 class="card-text">Цена {{ object.price }} руб.</h3>
                         {% if user.is_authenticated %}
-                            <a href="{% url 'medservice:appointment_create' %}?from={{ object.pk }}" class="custom-btn btn-13">Записаться</a>
+                            <a href="{% url 'medservice:appointment_create' %}?from={{ object.pk }}"
+                               class="custom-btn btn-13">Записаться</a>
                         {% else %}
                             <p class="card-text">Чтобы записаться на приём к врачу, вам нужно войти на сайт</p>
                             <a href="{% url 'users:login' %}" class="custom-btn btn-13">Войти</a>

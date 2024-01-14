@@ -20,7 +20,8 @@
                         {% if user.is_authenticated %}
                             <input class="custom-btn btn-13" type="submit" value="Сохранить изменения"/>
                             <button class="custom-btn btn-7" href="{% url 'users:generate_new_password' %}">Сброс
-                                пароля</button>
+                                пароля
+                            </button>
                         {% else %}
                             <input class="custom-btn btn-13" type="submit" value="Регистрация"/>
                         {% endif %}

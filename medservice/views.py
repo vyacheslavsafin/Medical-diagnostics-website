@@ -15,6 +15,11 @@ class IndexView(TemplateView):
 
         return context_data
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(category_id=self.kwargs.get('pk'))
+        return queryset
+
 
 class ContactsView(TemplateView):
     template_name = 'medservice/contacts.html'
