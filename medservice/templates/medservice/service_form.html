@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">
                         {% if object %}
-                        Редактирование услуги
+                            Редактирование услуги
                         {% else %}
-                        Добавление услуги
+                            Добавление услуги
                         {% endif %}
                     </div>
                     <div class="card-body">
@@ -17,9 +17,9 @@
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-outline-success">
                             {% if object %}
-                            Сохранить
+                                Сохранить
                             {% else %}
-                            Добавить
+                                Добавить
                             {% endif %}
                         </button>
                         <a href="{% url 'medservice:categories' %}" class="btn btn-warning">Отменить</a>
